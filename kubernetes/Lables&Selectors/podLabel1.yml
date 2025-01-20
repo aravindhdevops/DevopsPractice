@@ -1,0 +1,12 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: podlabel1
+  labels:
+    day: fri
+    class: k8s
+spec:
+  containers:
+    - name: c04
+      image: ubuntu
+      command: ["/bin/bash","-c","while true; do echo 'hi raj'; sleep 5; done"]

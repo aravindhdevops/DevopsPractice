@@ -1,0 +1,28 @@
+kind: ReplicaSet
+apiVersion: apps/v1
+metadata:
+  name: myreplicaset
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      myname: raj
+  template:
+    metadata:
+      labels:
+        myname: raj
+    spec:
+      containers:
+        - name: c02
+          image: ubuntu
+          command: ["/bin/bash","-c","while true; do echo 'hi raj'; sleep 5; done"]
+
+  template:
+    metadata:
+      labels:
+        myname: sai
+    spec:
+      containers:
+        - name: c02
+          image: centos
+          command: ["/bin/bash", "-c", "while true; do echo 'hi sai'; sleep 5; done"]

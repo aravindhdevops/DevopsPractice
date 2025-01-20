@@ -1,0 +1,19 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: mydeployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      dep: mydeployment # any label / shoul match with template label
+  
+  template:
+    metadata:
+      labels:
+        dep: mydeployment
+    spec:
+      containers:
+        - name: c01
+          image: centos
+          command: ["/bin/bash", "-c", "while true; do echo 'Hi aravivo'; sleep 4; done"]

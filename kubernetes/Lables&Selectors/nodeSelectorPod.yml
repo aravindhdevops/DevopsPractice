@@ -1,0 +1,11 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: node-selector-pod
+spec:
+  containers:
+    - name: c01
+      image: ubuntu/apache2
+      command: ["/bin/bash", "-c", "while true; do echo 'Hi raj !'; sleep 5; done"]
+  nodeSelector:
+    mynode: saidemy

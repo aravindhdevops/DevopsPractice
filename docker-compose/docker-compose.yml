@@ -1,0 +1,7 @@
+services:
+  one:
+    image: ubuntu
+    command: /bin/bash -c "while true; do echo 'Hi raj..!!'; sleep 5; done"
+  two:
+    image: ubuntu
+    command: /bin/bash -c "while true; do echo 'Hi aravivo..!!'; sleep 5; done"

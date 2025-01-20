@@ -1,0 +1,20 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: podlabel2
+  annotations:
+    description: this is labeled pod
+  labels:
+    day: sat
+    class: AWS
+spec:
+  containers:
+    - name: co6
+      image: ubuntu
+      command: ["/bin/bash", "-c", "while true; do echo 'devops'; sleep 5; done"]
+    - name: co7
+      image: centos
+      command: ["/bin/bash", "-c", "while true; do echo 'devops1'; sleep 5; done"]
+    - name: co8
+      image: ubuntu/apache2
+      command: ["/bin/bash", "-c", "while true; do echo 'devops2'; sleep 5; done"]

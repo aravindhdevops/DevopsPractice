@@ -1,0 +1,22 @@
+---
+kind: Pod
+apiVersion: v1
+metadata:
+  name: intrapod1
+spec:
+ containers:
+    - name: c00
+      image: nginx
+      ports:
+        - containerPort: 80
+---
+kind: Pod
+apiVersion: v1
+metadata:
+  name: intrapod2
+spec:
+  containers:
+    - name: c11
+      image: httpd
+      ports:
+        - containerPort: 80
