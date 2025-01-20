@@ -26,8 +26,8 @@ metadata:
   name: demo-service
 spec:
   ports:
-    - port: 80
-      targetPort: 80
+    - port: 80 # service port given by user (0 - 65535)
+      targetPort: 80 #container port
   selector:
     name: mydeployent
   #type: ClusterIP
