@@ -1,0 +1,17 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: livenesspod
+spec:
+  containers:
+    - name: c1
+      image: centos
+      command: ["/bin/bash", "-c", "touch /tmp/myfile ; sleep 10000"]
+      livenessProbe:
+        exec:
+          command:
+            - cat
+            - /tmp/myfile
+        initialDelaySeconds: 5
+        periodSeconds: 5
+        timeoutSeconds: 30
