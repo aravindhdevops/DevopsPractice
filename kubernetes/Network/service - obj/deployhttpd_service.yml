@@ -17,7 +17,7 @@ spec:
         - name: c01
           image: httpd
           ports:
-            - containerPort: 80
+            - containerPort: 81
 
 ---
 kind: Service
@@ -26,8 +26,8 @@ metadata:
   name: demo-service
 spec:
   ports:
-    - port: 80 # service port given by user (0 - 65535)
-      targetPort: 80 #container port
+    - port: 8081 # service port given by user (0 - 65535)
+      targetPort: 81 #container port
   selector:
     name: mydeployent
   #type: ClusterIP

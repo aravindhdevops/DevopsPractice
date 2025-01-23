@@ -1,0 +1,25 @@
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: hostpath-volume
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: hostpath
+  template:
+    metadata:
+      labels:
+        name: hostpath
+    spec:
+      containers:
+        - name: c01
+          image: nginx
+          volumeMounts:
+            - name: hostpath-volume
+              mountPath: /tmp/volDir
+      volumes:
+        - name: hostpath-volume
+          hostPath:
+            path: /tmp/hostpath_volume_Dir

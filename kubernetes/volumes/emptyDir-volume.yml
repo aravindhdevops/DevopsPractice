@@ -1,0 +1,33 @@
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: emptydir
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: deployment
+  template:
+    metadata:
+      labels:
+        name: deployment
+    spec:
+      containers:
+        - name: c01
+          image: centos
+          command: ["/bin/bash", "-c", "while true; do echo 'container1 is running'; sleep 3; done"]
+          volumeMounts:
+            - name: podvolume
+              mountPath: /tmp/podVolumeDir
+
+        - name: c02
+          image: centos
+          command: [ "/bin/bash", "-c", "while true; do echo 'container2 is running'; sleep 3; done" ]
+          volumeMounts:
+            - name: podvolume
+              mountPath: /tmp/podVolumeDir
+
+      volumes:
+        - name: podvolume
+          emptyDir: {}
