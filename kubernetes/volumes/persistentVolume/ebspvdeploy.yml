@@ -1,0 +1,25 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: ebsvoldeploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: deployvol
+  template:
+    metadata:
+      labels:
+        name: deployvol
+    spec:
+      containers:
+        - name: c1
+          image: ubuntu
+          command: ["/bin/bash", "-c", "while true; do echo 'Hi raj..!';sleep 10; done"]
+          volumeMounts:
+            - name: pvcvol
+              mountPath: "/tmp/pvDir""
+      volumes:
+        - name: pvcvol
+          PersistentVolumeClaim:
+            claimName: myebsvolclaim
