@@ -12,5 +12,5 @@ spec:
       readinessProbe:
         initialDelaySeconds: 10
         httpGet:
-          path: /
-          port: 80
+          path: / #run http on top level root dir
+          port: 80 #container port
