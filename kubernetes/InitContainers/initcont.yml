@@ -1,0 +1,24 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: init-cont
+spec:
+  initContainers:
+    - name: c1
+      image: ubuntu
+      command: ["/bin/bash","-c","echo 'hi' > /tmp/c1dir/file1; sleep 5"]
+      volumeMounts:
+        - name: myvol
+          mountPath: "/tmp/c1dir"
+
+  containers:
+    - name: c2
+      image: ubuntu
+      command: [ "/bin/bash","-c","sleep infinity" ]
+      volumeMounts:
+        - name: myvol
+          mountPath: "/tmp/c2dir"
+
+  volumes:
+    - name: myvol
+      emptyDir: {}
