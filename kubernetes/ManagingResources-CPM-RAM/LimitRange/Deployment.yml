@@ -1,0 +1,25 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: deployments
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      obj: deployment
+  template:
+    metadata:
+      labels:
+        obj: deployment
+    spec:
+      containers:
+        - name: c1
+          image: ubuntu
+          command: ["/bin/bash","-c","while true; do echo 'hi'; sleep 3; done"]
+          resources:
+            requests:
+              cpu: 100m
+              memory: 100Mi
+            limits:
+              cpu: 300
+              memory: 300Mi
