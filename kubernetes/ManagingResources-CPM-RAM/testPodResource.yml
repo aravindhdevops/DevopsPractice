@@ -1,0 +1,16 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: myresources
+spec:
+  containers:
+    - name: c1
+      image: centos
+      command: ["/bin/bash","-c","while true; do echo 'hi'; sleep 10; done"]
+      resources:
+        requests:
+          cpu: 100m
+          memory: 20Mi
+        limits:
+          cpu: 500m
+          memory: 50Mi
