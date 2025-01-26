@@ -1,0 +1,13 @@
+kind: Job
+apiVersion: batch/v1
+metadata:
+  name: myjob
+spec:
+  parallelism: 5
+  template:
+    spec:
+      containers:
+        - name: c1
+          image: ubuntu
+          command: ["/bin/bash", "-c","echo 'hi aravivo' > /tmp/file1; sleep 5"]
+      restartPolicy: Never

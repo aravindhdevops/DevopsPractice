@@ -1,0 +1,15 @@
+kind: CronJob
+apiVersion: batch/v1
+metadata:
+  name: mycron
+spec:
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: c2
+              image: ubuntu
+              command: ["/bin/bash", "-c","echo 'hi aravivo' >/tmp/file1; sleep 5"]
+          restartPolicy: Never
