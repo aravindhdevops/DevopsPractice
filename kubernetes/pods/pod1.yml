@@ -1,0 +1,18 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: mypod
+  annotations:
+    description: This is for learning
+spec:
+  containers:
+    - name: c01
+      image: centos
+      command: ["/bin/bash", "-c", "while true; do echo 'Hi..!!'; sleep 5; done;"]
+
+    - name: c02
+      image: ubuntu
+      command: ["/bin/bash", "-c", "while true; do echo 'Hi raj..!!'; sleep 5; done;"]
+      env:
+        - name: myname
+          value: raj123

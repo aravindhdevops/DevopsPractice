@@ -1,0 +1,18 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: testpod
+  annotations:
+    description: "My sample pod"
+spec:
+  containers:
+     - name: c00
+       image: ubuntu
+       command: ["/bin/bash","-c","while true; do echo 'hi..!!'; sleep 5; done"]
+     
+     - name: c01
+       image: centos
+       command: ["/bin/bash","-c","while true; do echo 'hi aravivo..!!'; sleep 5; done"]
+       env:
+         - name: username
+           value: aravivo
