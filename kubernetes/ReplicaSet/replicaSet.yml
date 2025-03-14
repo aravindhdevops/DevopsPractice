@@ -16,13 +16,3 @@ spec:
         - name: c02
           image: ubuntu
           command: ["/bin/bash","-c","while true; do echo 'hi raj'; sleep 5; done"]
-
-  template:
-    metadata:
-      labels:
-        myname: sai
-    spec:
-      containers:
-        - name: c02
-          image: centos
-          command: ["/bin/bash", "-c", "while true; do echo 'hi sai'; sleep 5; done"]
